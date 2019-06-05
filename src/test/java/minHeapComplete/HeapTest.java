@@ -28,7 +28,7 @@ public class HeapTest{
         int size = 10;
         heap.starHeap(size);
         heap.insert(10);
-        heap.insert(25);
+        heap.insert(21);
         heap.insert(3);
         assertEquals(3, heap.currentSize());
     }
@@ -38,8 +38,8 @@ public class HeapTest{
         Heap<Integer> heap = new Heap<Integer>();
         int size = 10;
         heap.starHeap(size);
-        heap.insert(23);
-        assertEquals(23, heap.findMin());
+        heap.insert(21);
+        assertEquals(21, heap.findMin());
     }
 
     @Test
@@ -49,8 +49,10 @@ public class HeapTest{
         heap.starHeap(size);
         heap.insert(23);
         heap.insert(25);
+        heap.insert(17);
+        heap.showHeap();
         heap.extractMin();
-        assertEquals(1, heap.currentSize());
+        assertEquals(17, heap.findMin());
     }
 
     @Test
@@ -62,6 +64,13 @@ public class HeapTest{
        // heap.insert(25);
         heap.delete(0);
         assertEquals(0, heap.currentSize());
+    }
+
+    @Test
+    public void heapSortTest() {
+        Integer[] vetor = {9,8,7};
+        Heap.heapSort(vetor);
+        assertTrue(vetor[0] == 9);
     }
 
 }
